@@ -2,21 +2,39 @@
 
 > Agency proposals, written in ten minutes.
 
-Tell us about the client and the scope. Get a polished proposal with pricing and timeline, on your letterhead.
+## Stack
 
-## What you get
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript (strict)
+- **Styles:** Tailwind CSS v4 (CSS-first, no config file)
+- **Runtime:** React 19
+- **Package manager:** pnpm
 
-- **Your template, your tone** — Upload one good proposal once. Every future one matches it automatically.
-- **Smart pricing logic** — Time estimates, fixed fees, retainer math. We help you quote without undercharging.
-- **Sends and tracks** — Fire it as a trackable link. See when the client opened it, and where they lingered.
+## Routes
 
-## Category
+| Route | Description |
+|---|---|
+| `/` | Landing page with waitlist form |
+| `/try` | Proposal generator (client name, description, budget → mocked proposal) |
+| `/api/waitlist` | POST `{ email }` → proxies to waitlist service |
 
-Productivity. Part of a 50-product exploration of high-demand consumer and SMB markets.
+## Run locally
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Deploy
+
+Deploy to [Vercel](https://vercel.com) — zero config required. Push to `main` and Vercel picks it up automatically.
+
+```bash
+vercel --prod
+```
 
 ## Status
 
-Landing page live with interactive demo and functional waitlist.
-
-- **Live:** https://mukundakatta.github.io/pitchr/
-- **Waitlist API:** https://waitlist-api-sigma.vercel.app/api/waitlist
+v0 skeleton. Landing page ported from static HTML. `/try` uses mocked proposal output. Waitlist API proxies to `waitlist-api-sigma.vercel.app`.
